@@ -1,3 +1,6 @@
+#!/bin/bash
+
+xcode-select --install
 
 set -e
 
@@ -18,10 +21,6 @@ fi
 echo
 echo "Ensuring your Homebrew directory is writable..."
 sudo chown -Rf $(whoami) $(brew --prefix)/*
-
-echo
-echo "Installing Homebrew services..."
-brew tap homebrew/services
 
 echo
 echo "Upgrading existing brews..."
@@ -74,10 +73,6 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 # Don't stop if docker fails
 set +e
 
-# Docker
-brew install --cask docker
-echo "To get docker command-line tools, run the docker application"
-
 # Docker Bash Completion
 # Reference https://docs.docker.com/docker-for-mac/
 pushd /usr/local/etc/bash_completion.d
@@ -86,11 +81,10 @@ pushd /usr/local/etc/bash_completion.d
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 popd
 
+
+# setup asdf
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" | sudo tee -a ${ZDOTDIR:-~}/.zshrc || true
+echo -e "\nsource '(brew --prefix asdf)'/asdf.fish" >> ~/.config/fish/config.fish || true
 set -e
 
-brew install readline
-eval "$(rbenv init -)"
-rbenv install $(rbenv install -l | grep -v - | tail -1) --skip-existing
-rbenv global $(rbenv install -l | grep -v - | tail -1)
-gem install bundler
-rbenv rehash
+echo "Setup complete!"
