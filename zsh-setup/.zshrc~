@@ -1,0 +1,16 @@
+source ~/source-creation-vault.sh
+saml2aws login
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/asdf.sh
