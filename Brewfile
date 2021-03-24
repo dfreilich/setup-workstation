@@ -35,3 +35,4 @@ cask "shiftit"
 cask "visual-studio-code"
 cask 'spotify'
 cask 'docker'
+brew pyenv
