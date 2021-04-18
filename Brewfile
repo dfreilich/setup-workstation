@@ -13,12 +13,12 @@ brew "coreutils"
 brew 'wget'
 brew 'curl'
 brew 'readline'
-brew 'asdf'
 brew 'fish'
 brew 'fd'
 brew 'fzf'
 brew 'gh'
 brew 'gpg'
+brew 'neovim'
 
 tap "buildpacks/tap"
 brew "pack"
@@ -36,3 +36,4 @@ cask "visual-studio-code"
 cask 'spotify'
 cask 'docker'
 brew pyenv
+brew ag
