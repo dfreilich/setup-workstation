@@ -19,6 +19,7 @@ brew 'fzf'
 brew 'gh'
 brew 'gpg'
 brew 'neovim'
+brew 'nvm'
 
 tap "buildpacks/tap"
 brew "pack"

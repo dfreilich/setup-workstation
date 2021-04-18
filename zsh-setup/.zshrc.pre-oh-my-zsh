@@ -1,7 +1,6 @@
 source ~/source-creation-vault.sh
 saml2aws login
 
-. /usr/local/opt/asdf/asdf.sh
 . /usr/local/etc/profile.d/z.sh
 eval "$(starship init zsh)"
 

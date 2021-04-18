@@ -2,8 +2,6 @@
 source ~/source-creation-vault.sh
 saml2aws login
 
-# Enable asdf
-. /usr/local/opt/asdf/asdf.sh
 # Enable z
 . /usr/local/etc/profile.d/z.sh
 
@@ -127,6 +125,8 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ll='ls -lah'
+alias gpr='git pull --rebase'
 
 # -='cd -'
 # ...=../..
@@ -288,3 +288,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
