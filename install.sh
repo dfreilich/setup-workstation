@@ -33,12 +33,24 @@ echo
 echo "Adding Homebrew's sbin to your PATH..."
 echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
 
-
+############
+# INSTALLS #
+############
 mkdir -p ~/go/src
 set +e
 brew bundle install
 set -e
 
+# Install GVM
+zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+# Install vim-plug for nvim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+############
+# SETTINGS #
+############
 echo "configure shiftit to select 1/3 screen width, 1/2 screen width and 2/3 screen width:"
 defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes YES
 
@@ -81,10 +93,5 @@ pushd /usr/local/etc/bash_completion.d
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 popd
 
-
-# setup asdf
-echo -e "\n. $(brew --prefix asdf)/asdf.sh" | sudo tee -a ${ZDOTDIR:-~}/.zshrc || true
-echo -e "\nsource '(brew --prefix asdf)'/asdf.fish" >> ~/.config/fish/config.fish || true
-set -e
 
 echo "Setup complete!"
