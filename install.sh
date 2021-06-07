@@ -100,5 +100,8 @@ pushd /usr/local/etc/bash_completion.d
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 popd
 
+# Cht.sh
+curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
+sudo chmod +x /usr/local/bin/cht.sh
 
 echo "Setup complete!"

@@ -123,164 +123,17 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll='ls -lah'
 alias gpr='git pull --rebase'
-
-# -='cd -'
-# ...=../..
-# _='sudo '
-# afind='ack -il'
-# egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-# fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-# g=git
-# gb='git branch'
-# gbD='git branch -D'
-# gbd='git branch -d'
-# gbda='git branch --no-color --merged | command grep -vE "^(\+|\*|\s*($(git_main_branch)|development|develop|devel|dev)\s*$)" | command xargs -n 1 git branch -d'
-# gbl='git blame -b -w'
-# gbnm='git branch --no-merged'
-# gbr='git branch --remote'
-# gclean='git clean -id'
-# gcmsg='git commit -m'
-# 'gcn!'='git commit -v --no-edit --amend'
-# gco='git checkout'
-# gcount='git shortlog -sn'
-# gcp='git cherry-pick'
-# gcpa='git cherry-pick --abort'
-# gcpc='git cherry-pick --continue'
-# gcs='git commit -S'
-# gcsm='git commit -s -m'
-# gd='git diff'
-# gdca='git diff --cached'
-# gdct='git describe --tags $(git rev-list --tags --max-count=1)'
-# gdcw='git diff --cached --word-diff'
-# gds='git diff --staged'
-# gdt='git diff-tree --no-commit-id --name-only -r'
-# gdw='git diff --word-diff'
-# gf='git fetch'
-# gfa='git fetch --all --prune --jobs=10'
-# gfg='git ls-files | grep'
-# gfo='git fetch origin'
-# gg='git gui citool'
-# gga='git gui citool --amend'
-# ggpull='git pull origin "$(git_current_branch)"'
-# ggpur=ggu
-# ggpush='git push origin "$(git_current_branch)"'
-# ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
-# ghh='git help'
-# gignore='git update-index --assume-unchanged'
-# gignored='git ls-files -v | grep "^[[:lower:]]"'
-# git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
-# gk='\gitk --all --branches'
-# gke='\gitk --all $(git log -g --pretty=%h)'
-# gl='git pull'
-# glg='git log --stat'
-# glgg='git log --graph'
-# glgga='git log --graph --decorate --all'
-# glgm='git log --graph --max-count=10'
-# glgp='git log --stat -p'
-# glo='git log --oneline --decorate'
-# globurl='noglob urlglobber '
-# glod='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'
-# glods='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'' --date=short'
-# glog='git log --oneline --decorate --graph'
-# gloga='git log --oneline --decorate --graph --all'
-# glol='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'
-# glola='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
-# glols='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --stat'
-# glp=_git_log_prettily
-# glum='git pull upstream $(git_main_branch)'
-# gm='git merge'
-# gma='git merge --abort'
-# gmom='git merge origin/$(git_main_branch)'
-# gmt='git mergetool --no-prompt'
-# gmtvim='git mergetool --no-prompt --tool=vimdiff'
-# gmum='git merge upstream/$(git_main_branch)'
-# gp='git push'
-# gpd='git push --dry-run'
-# gpf='git push --force-with-lease'
-# 'gpf!'='git push --force'
-# gpoat='git push origin --all && git push origin --tags'
-# gpristine='git reset --hard && git clean -dffx'
-# gpsup='git push --set-upstream origin $(git_current_branch)'
-# gpu='git push upstream'
-# gpv='git push -v'
-# gr='git remote'
-# gra='git remote add'
-# grb='git rebase'
-# grba='git rebase --abort'
-# grbc='git rebase --continue'
-# grbd='git rebase develop'
-# grbi='git rebase -i'
-# grbm='git rebase $(git_main_branch)'
-# grbs='git rebase --skip'
-# grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-# grev='git revert'
-# grh='git reset'
-# grhh='git reset --hard'
-# grm='git rm'
-# grmc='git rm --cached'
-# grmv='git remote rename'
-# groh='git reset origin/$(git_current_branch) --hard'
-# grrm='git remote remove'
-# grs='git restore'
-# grset='git remote set-url'
-# grss='git restore --source'
-# grst='git restore --staged'
-# grt='cd "$(git rev-parse --show-toplevel || echo .)"'
-# gru='git reset --'
-# grup='git remote update'
-# grv='git remote -v'
-# gsb='git status -sb'
-# gsd='git svn dcommit'
-# gsh='git show'
-# gsi='git submodule init'
-# gsps='git show --pretty=short --show-signature'
-# gsr='git svn rebase'
-# gss='git status -s'
-# gst='git status'
-# gsta='git stash push'
-# gstaa='git stash apply'
-# gstall='git stash --all'
-# gstc='git stash clear'
-# gstd='git stash drop'
-# gstl='git stash list'
-# gstp='git stash pop'
-# gsts='git stash show --text'
-# gstu='git stash --include-untracked'
-# gsu='git submodule update'
-# gsw='git switch'
-# gswc='git switch -c'
-# gtl='gtl(){ git tag --sort=-v:refname -n -l "${1}*" }; noglob gtl'
-# gts='git tag -s'
-# gtv='git tag | sort -V'
-# gunignore='git update-index --no-assume-unchanged'
-# gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-# gup='git pull --rebase'
-# gupa='git pull --rebase --autostash'
-# gupav='git pull --rebase --autostash -v'
-# gupv='git pull --rebase -v'
-# gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-# gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
-# history=omz_history
-# l='ls -lah'
-# la='ls -lAh'
-# ll='ls -lh'
-# ls='ls -G'
-# lsa='ls -lah'
-# md='mkdir -p'
-# rd=rmdir
-# run-help=man
-# which-command=whence
 # z='_z 2>&1'
-#
+alias vim="nvim"
+alias vi="nvim"
+alias clean-docker='docker rm -f $(docker ps -aq) &>/dev/null; docker system prune --all -f && docker volume prune -f && docker images && docker volume ls && docker ps'
 
 # Options
 setopt AUTO_CD
-setopt CORRECT
-setopt CORRECT_ALL
+# setopt CORRECT
+# setopt CORRECT_ALL
 
 [[ -s "/Users/davidfreilich/.gvm/scripts/gvm" ]] && source "/Users/davidfreilich/.gvm/scripts/gvm"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -292,3 +145,15 @@ fi
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+autoload -U compinit; compinit
+eval "$(chef shell-init zsh)"
+
+
+#### FIG ENV VARIABLES ####
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+
+#### Setup cht.sh ###
+curl https://cheat.sh/:zsh > ~/.zsh.d/_cht
+fpath=(~/.zsh.d/ $fpath)
+
