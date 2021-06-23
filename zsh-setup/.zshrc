@@ -1,9 +1,15 @@
 # AppsFLyer requirements
-source ~/source-creation-vault.sh
-saml2aws login
+# source ~/source-creation-vault.sh
+# saml2aws login
 
 # Enable z
 . /usr/local/etc/profile.d/z.sh
+vault_login() {
+	if [[ ! -v TOKEN ]]; then
+		export TOKEN=$(vault login -address=https://vault.appsflyer.com/ -method=ldap -path=ldap2 username=david.freilich -format=json | jq -r '.auth.client_token')
+	fi
+	echo "TOKEN is set: $TOKEN"
+}
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -105,7 +111,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -152,8 +158,4 @@ eval "$(chef shell-init zsh)"
 #### FIG ENV VARIABLES ####
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
 #### END FIG ENV VARIABLES ####
-
-#### Setup cht.sh ###
-curl https://cheat.sh/:zsh > ~/.zsh.d/_cht
-fpath=(~/.zsh.d/ $fpath)
 

@@ -21,14 +21,10 @@ brew 'gpg'
 brew 'neovim'
 brew 'nvm'
 
-tap "buildpacks/tap"
-brew "pack"
-
-tap "kyoh86/tap"
-brew "richgo"
-
-tap "nektos/tap"
-brew "act"
+brew "buildpacks/tap/pack"
+brew "kyoh86/tap/richgo"
+brew "nektos/tap/act"
+brew "hashicorp/tap/vault"
 
 cask "flycut"
 cask "iterm2"
