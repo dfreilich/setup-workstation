@@ -9,7 +9,7 @@ This repo contains my preferred workstations home folder
     ssh-keygen
     ssh-add
     ```
-* [ ] Follow [these steps](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) to add your new key to your github account (do not forget to authorize your key after adding it)
+* [ ] Follow [these steps](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) to add your new key to your github (or Gitlab, in which case you'll need [these](https://docs.gitlab.com/ee/ssh/) steps) account (do not forget to authorize your key after adding it)
 * [ ] `mkdir -p ~/workspace`
 * [ ] Clone this repo 
     ```shell
