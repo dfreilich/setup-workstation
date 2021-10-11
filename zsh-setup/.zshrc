@@ -1,4 +1,4 @@
-# AppsFLyer requirements
+# AppsFlyer requirements
 # source ~/source-creation-vault.sh
 # saml2aws login
 
@@ -14,10 +14,10 @@ vault_login() {
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Created by `pipx` on 2021-03-10 15:59:46
-export PATH="$PATH:/Users/davidfreilich/.local/bin"
+export PATH="$PATH:/Users/$USER/.local/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/davidfreilich/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -107,10 +107,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -141,7 +138,6 @@ setopt AUTO_CD
 # setopt CORRECT
 # setopt CORRECT_ALL
 
-[[ -s "/Users/davidfreilich/.gvm/scripts/gvm" ]] && source "/Users/davidfreilich/.gvm/scripts/gvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -153,9 +149,3 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 autoload -U compinit; compinit
 eval "$(chef shell-init zsh)"
-
-
-#### FIG ENV VARIABLES ####
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-

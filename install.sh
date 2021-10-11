@@ -41,9 +41,6 @@ set +e
 brew bundle install
 set -e
 
-# Install GVM
-zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-
 # Install vim-plug for nvim
 mkdir -p ~/.vim
 mkdir -p ~/.vim/autoload
@@ -65,7 +62,6 @@ defaults write com.apple.finder '_FXShowPosixPathInTitle' -bool true
 
 # stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
-#to revert use defaults -currentHost delete com.apple.ImageCapture disableHotPlug
 
 echo "Configuring ShiftIt"
 open /Applications/ShiftIt.app
@@ -99,9 +95,5 @@ pushd /usr/local/etc/bash_completion.d
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 popd
-
-# Cht.sh
-curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
-sudo chmod +x /usr/local/bin/cht.sh
 
 echo "Setup complete!"

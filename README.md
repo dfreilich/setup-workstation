@@ -24,4 +24,5 @@ This repo contains my preferred workstations home folder
     git config --global user.email "YOUR EMAIL"
     ``` 
 * [ ] Use appropriate settings from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-Based on https://github.com/pivotal/workstation-setup
+
+> Based on https://github.com/pivotal/workstation-setup
