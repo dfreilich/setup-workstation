@@ -31,5 +31,7 @@ cask "shiftit"
 cask "visual-studio-code"
 cask 'spotify'
 cask 'docker'
-brew pyenv
-brew ag
+brew 'pyenv'
+brew 'ag'
+
+brew 'zsh-syntax-highlighting'

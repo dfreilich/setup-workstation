@@ -9,6 +9,7 @@ sudo -K
 sudo true;
 clear
 
+set +e
 MY_DIR="$(dirname "$0")"
 
 if hash brew 2>/dev/null; then
@@ -86,7 +87,6 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 git config --global pager.branch false
 
 # Don't stop if docker fails
-set +e
 
 # Docker Bash Completion
 # Reference https://docs.docker.com/docker-for-mac/
@@ -95,5 +95,13 @@ pushd /usr/local/etc/bash_completion.d
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 popd
+
+# Configure zsh
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp -fr zsh-setup/ ~/
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+source ~/.zshrc
 
 echo "Setup complete!"
