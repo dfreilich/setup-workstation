@@ -27,7 +27,7 @@ brew "nektos/tap/act" # for Github Actions
 
 cask "flycut"
 cask "iterm2"
-cask "shiftit"
+cask "rectangle"
 cask "visual-studio-code"
 cask 'spotify'
 cask 'docker'

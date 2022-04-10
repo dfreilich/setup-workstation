@@ -55,17 +55,14 @@ cp vim/init.vim ~/.vim/
 ############
 # SETTINGS #
 ############
-echo "configure shiftit to select 1/3 screen width, 1/2 screen width and 2/3 screen width:"
-defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes YES
-
 # set finder to display full path in title bar
 defaults write com.apple.finder '_FXShowPosixPathInTitle' -bool true
 
 # stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-echo "Configuring ShiftIt"
-open /Applications/ShiftIt.app
+echo "Open Rectangle"
+open /Applications/Rectangle.app
 
 echo "Configuring FlyCut"
 open /Applications/Flycut.app
