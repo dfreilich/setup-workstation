@@ -61,6 +61,9 @@ defaults write com.apple.finder '_FXShowPosixPathInTitle' -bool true
 # stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+# Allow moving a window using cmd+click
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
 echo "Open Rectangle"
 open /Applications/Rectangle.app
 
