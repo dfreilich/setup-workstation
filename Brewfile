@@ -19,6 +19,7 @@ brew 'gh'
 brew 'gpg'
 brew 'neovim'
 brew 'nvm'
+brew 'fx'
 
 brew "buildpacks/tap/pack" # for buildpacks
 brew "kyoh86/tap/richgo" # better go test results
