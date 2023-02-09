@@ -1,3 +1,6 @@
+chmod g-w /usr/local/share/zsh
+chmod g-w /usr/local/share/zsh/site-functions
+
 # zmodload zsh/zprof
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -11,6 +14,13 @@ fi
 ###################### AWS Config #################
 export PATH="$PATH:/Users/davidfreilich/.local/bin:/Users/davidfreilich/.chefdk/gem/ruby/3.0.0/bin"
 export ZSH="/Users/davidfreilich/.oh-my-zsh"
+
+AWS_PROFILE="Development"
+aws-login() {
+    aws sso login --profile $AWS_PROFILE
+    aws-export-credentials --profile $AWS_PROFILE -c default
+    aws-export-credentials --profile $AWS_PROFILE -c $AWS_PROFILE
+}
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -39,17 +49,11 @@ plugins=(
 source ~/.p10k.zsh
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+compaudit | xargs chmod g-w,o-w
 
 # User configuration
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 alias ll='ls -lah'
 alias gpr='git pull --rebase'
@@ -57,7 +61,17 @@ alias gpr='git pull --rebase'
 alias vim="nvim"
 alias vi="nvim"
 alias clean-docker='docker rm -f $(docker ps -aq) &>/dev/null; docker system prune --all -f && docker volume prune -f && docker images && docker volume ls && docker ps'
-alias set-vault="export TOKEN=$(vault login -address=https://vault.appsflyer.com/ -method=ldap -path=ldap username=david.freilich password=$(cat ~/.ssh/okta) -format=json | jq -r .auth.client_token); echo $TOKEN"
+alias set-vault='af vault login --login-with-keychain && export TOKEN=$(cat ~/.vault-token) && echo "TOKEN set to ${TOKEN}"'
+alias tf='terraform'
+alias kb='kubectl'
+alias allgr='kubectl get gitrepo -n flux-system --no-headers -o custom-columns=":metadata.name"'
+alias removefinalizers='kubectl get gitrepo 8412-master -n flux-system  -o=json | jq ".metadata.finalizers = null" | kubectl apply -f - '
+#alias removetf="kb get tf -A --no-headers  -o custom-columns=\":metadata.name,:metadata.namespace\" | xargs  -n 2 bash -c 'kubectl get tf/$0 -n $1 -o=json | jq \".metadata.finalizers = null\" | kubectl apply -f - && kubectl delete tf $0 -n $1'"
+#alias removedu="kb get du -A --no-headers  -o custom-columns=\":metadata.name,:metadata.namespace\" | xargs  -n 2 bash -c 'kubectl delete du/$0 -n $1'"
+testfunc() { echo "Hello" }
+removedue() { kubectl get du -A --no-headers  -o custom-columns=":metadata.name,:metadata.namespace" | xargs  -n 2 bash -c 'kubectl delete du/$0 -n $1' }
+removetfe() { kb get tf -A --no-headers  -o custom-columns=":metadata.name,:metadata.namespace" | xargs  -n 2 bash -c 'kubectl get tf/$0 -n $1 -o=json | jq ".metadata.finalizers = null" | kubectl apply -f - && kubectl delete tf $0 -n $1' }
+removegre() { kubectl get gitrepo -A --no-headers -o custom-columns=":metadata.name,:metadata.namespace" | xargs  -n 2 bash -c 'kubectl delete gitrepo/$0 -n $1' }
 # Options
 setopt AUTO_CD
 # setopt CORRECT
@@ -82,9 +96,16 @@ alias ssh="/Users/davidfreilich/.af-ssh/update.sh; ssh $@"
 
 alias af-scp="/Users/davidfreilich/.af-ssh/af_scp.sh $@"
 # eval "$(chef shell-init zsh)"
+# ensure that compinit succeeds
+
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 compinit -C
 
+alias kb='kubectl'
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
