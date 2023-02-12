@@ -21,18 +21,16 @@ brew 'neovim'
 brew 'nvm'
 brew 'fx'
 
-brew "buildpacks/tap/pack" # for buildpacks
-brew "kyoh86/tap/richgo" # better go test results
-brew "hashicorp/tap/vault" # to access Vault
-brew "nektos/tap/act" # for Github Actions
+tap "buildpacks/tap" # for buildpacks
+brew 'pack'
+tap "kyoh86/tap" # better go test results
+brew 'richgo'
 
 cask "flycut"
-cask "iterm2"
+# cask "iterm2"
 cask "rectangle"
 cask "visual-studio-code"
-cask 'spotify'
 cask 'docker'
-brew 'pyenv'
 brew 'ag'
 
 brew 'zsh-syntax-highlighting'

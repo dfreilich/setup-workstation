@@ -9,7 +9,6 @@ sudo -K
 sudo true;
 clear
 
-set +e
 MY_DIR="$(dirname "$0")"
 
 if hash brew 2>/dev/null; then
@@ -38,19 +37,17 @@ echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
 # INSTALLS #
 ############
 mkdir -p ~/go/src
-set +e
 brew bundle install
-set -e
 
 # Install vim-plug for nvim
 mkdir -p ~/.vim
 mkdir -p ~/.vim/autoload
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -s ~/.vim ~/.config/
-mv ~/.config/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-cp vim/init.vim ~/.vim/
+ln -s ~/.vim ~/.config/ || true
+mv ~/.config/.vim ~/.config/nvim || true
+ln -s ~/.vimrc ~/.config/nvim/init.vim || true
+cp vim/init.vim ~/.vim/ || true
 
 ############
 # SETTINGS #
@@ -91,9 +88,9 @@ git config --global pager.branch false
 # Docker Bash Completion
 # Reference https://docs.docker.com/docker-for-mac/
 pushd /usr/local/etc/bash_completion.d
-  ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
-  ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
-  ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+  ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion || true
+  ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion || true
+  ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion || true
 popd
 
 # Configure zsh
